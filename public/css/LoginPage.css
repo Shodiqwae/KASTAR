@@ -1,0 +1,70 @@
+body {
+    background: url('../images/Bg-Sign.jpg') no-repeat center center fixed;
+    background-size: cover
+}
+
+
+.gambar{
+    text-align: center;
+    margin-top: 7%;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 300px; /* Adjust as needed */
+}
+
+.input-group .icon {
+    margin-right: 10px;
+}
+
+.input-group .icon img {
+    width: 20px; /* Adjust icon size */
+    height: 20px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    background: transparent; /* Ensure input background is transparent */
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    padding: 5px; /* Optional: Add padding for better text positioning */
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #2148C0 inset !important; /* Use the background color of your page */
+    -webkit-text-fill-color: white !important; /* Ensure text is visible */
+}
+
+.input-group input::placeholder {
+    color: white;
+}
+
+.button-group {
+    width: 320px;
+    height: 200px;
+}
+.button-group button{
+    width: 325px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: none;
+    box-shadow: 0 5px 1px rgba(0, 0, 0, 0.244);
+}
