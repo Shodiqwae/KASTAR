@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Sidebar 05</title>
+    <title>Home Admin</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -21,18 +21,23 @@
 
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
-
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <i class="fa fa-bars"></i>
+          <span class="sr-only">Toggle Menu</span>
+        </button>
+    </div>
             <div class="p-4">
                 <div class='Gambar'>
                     <img src="{{ asset('images/logo.png') }}" alt="" srcset="">
                 </div>
-                <ul class="list-unstyled components mb-5 list-sidebar">
+                <ul class="list-unstyled components mb-5 list-sidebar" style="font-family: Montserrat, sans-serif; font-weight:500;">
                     <li class="active">
-                        <a href="#" style="font-size: 18px"><span><img src="{{ asset('images/home.png') }}"
+                        <a href="{{ route('HomeA') }}" style="font-size: 18px"><span><img src="{{ asset('images/home.png') }}"
                                     alt="" style="margin-right: 13px; margin-bottom:7px"></span> Home</a>
                     </li>
-                    <li>
-                        <a href="#" style="font-size: 18px"><span><img src="{{ asset('images/archive.png') }}"
+                    <li >
+                        <a href="{{ route('products.index') }}" style="font-size: 18px"><span><img src="{{ asset('images/archive.png') }}"
                                     alt="" style="margin-right: 14px; margin-bottom:7px"></span> Product</a>
                     </li>
                     <li>
@@ -52,34 +57,76 @@
                                     alt="" style="margin-right: 10px; margin-bottom:7px"></span> Profile</a>
                     </li>
                 </ul>
-
-
-
-
             </div>
         </nav>
 
         <!-- Page Content  -->
         <div id="content" class="p-4 p-md-4 pt-5">
 
-            <h2 style="margin-left: 25px; font-family: Montserrat, sans-serif; font-weight:700; color: #1A4AE9">JUMLAH DATA</h2>
-            <div class="divider"></div>
+            <div class="jumlah-data">
 
-            <div class="box-count">
+                <h2 style="margin-left: 25px; font-family: Montserrat, sans-serif; font-weight:700; color: #1A4AE9">JUMLAH DATA</h2>
+                <div class="divider"></div>
 
-                <div class="box-user">
-                    <span>
+                <div class="box-count">
+
+                    <div class="box-user">
+                        <span>
                         <img src="{{ asset('images/user-white.png') }}" alt="Logo Ilang" style="margin-left: 10px; margin-bottom: 20px">
                         <span style="color: white;font-family: Montserrat, sans-serif; font-weight: 600; font-size: 33px; line-height: 100px; margin-left: 15px ">USER :</span>
+                        <span style="color: white;font-family: Montserrat, sans-serif; font-weight: 600; font-size: 33px; line-height: 100px; margin-left: 50% ">{{ $UsersCount }}</span>
                     </span>
                 </div>
                 <div class="box-product">
                     <span>
                         <img src="{{ asset('images/archive-white.png') }}" alt="Logo Ilang" style="margin-left: 25px; margin-bottom: 20px">
                         <span style="color: white;font-family: Montserrat, sans-serif; font-weight: 600; font-size: 33px; line-height: 100px; margin-left: 15px ">Product :</span>
+                        <span style="color: white;font-family: Montserrat, sans-serif; font-weight: 600; font-size: 33px; line-height: 100px; margin-left: 35% ">{{ $totalProduct }}</span>
+
                     </span>
                 </div>
             </div>
+        </div>
+        <h2 style="margin-left: 25px; font-family: Montserrat, sans-serif; font-weight:700; color: #1A4AE9">DATA</h2>
+        <div class="divider1"></div>
+        <div class="data-proser">
+                <table class="table1">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>NAMA USER</th>
+                            <th>ROLE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($users as $user)
+                            <tr>
+                                <td>{{ $loop->iteration}}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->role }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <table class="table2">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>NAMA Produk</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($products as $product)
+                            <tr>
+                                <td>{{ $loop->iteration}}</td>
+                                <td>{{ $product->nama_product }}</td>
+                                <td>{{ $product->stock }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+        </div>
         </div>
     </div>
 

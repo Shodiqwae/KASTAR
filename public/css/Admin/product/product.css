@@ -1,0 +1,32 @@
+.divider {
+    width: 11%;
+    height: 2px;
+    background-color: black;
+    text-align: left;
+    margin-left: 35px;
+}
+
+.Gambar img{
+    height: 120px;
+}
+
+.Gambar {
+    align-items: center;
+    text-align: center;
+}
+
+.list-sidebar {
+    margin-top: 20px;
+}
+
+.button-Add {
+    width: 180px;
+    height: 45px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-left: 35px;
+    border: none;
+    background-color: #2691DE;
+    box-shadow: 0 5px 1px rgba(0, 0, 0, 0.244);
+}

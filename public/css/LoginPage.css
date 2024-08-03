@@ -68,3 +68,13 @@ input:-webkit-autofill {
     border: none;
     box-shadow: 0 5px 1px rgba(0, 0, 0, 0.244);
 }
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #2148C0 inset !important; /* Use the background color of your page */
+    -webkit-text-fill-color: white !important; /* Ensure text is visible */
+}
+
+input::selection {
+    color: rgb(19, 120, 209);
+    background: rgb(32, 49, 156);
+}

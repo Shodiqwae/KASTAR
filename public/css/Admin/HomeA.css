@@ -19,6 +19,15 @@
     margin-left: 27px;
 }
 
+.divider1 {
+    width: 8%;
+    height: 2px;
+    background-color: black;
+    text-align: left;
+    margin-left: 27px;
+}
+
+
 .box-user {
     width: 45%;
     height: 100px;
@@ -33,5 +42,30 @@
 }
 
 .box-count {
+    display: flex;
+}
+
+table {
+    border-collapse: collapse;
+    width: 45%;
+    margin: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+.table1 th {
+    background-color: #669DDC;
+}
+.table2 th {
+    background-color: #39BCA6;
+}
+.data-proser {
     display: flex;
 }
