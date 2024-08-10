@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'gambar'
+        'name', 'email', 'password', 'role', 'gambar', 'alamat',  // tambahkan ini
     ];
 
     protected $hidden = [
@@ -22,5 +22,8 @@ class User extends Authenticatable
     {
         return $value ?? 'prf.png';
     }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 
 }

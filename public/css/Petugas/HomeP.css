@@ -1,0 +1,166 @@
+/* Styling untuk scrollbar agar lebih halus dan konsisten */
+.modal-body div {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #e1e1e1;
+}
+
+.modal-body div::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body div::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+
+html, body {
+    overflow: hidden;
+}
+
+.divider {
+    width: 11%;
+    height: 2px;
+    background-color: black;
+    text-align: left;
+    margin-left: 35px;
+}
+
+.Gambar img{
+    height: 120px;
+}
+
+.Gambar {
+    align-items: center;
+    text-align: center;
+}
+
+.list-sidebar {
+    margin-top: 20px;
+}
+
+.menu-pesanan {
+    background-color: #D9D9D9;
+    display: flex;
+    flex-wrap: wrap;
+    height: 80vh;
+    border-radius: 20px;
+    margin-left: 30px;
+    margin-right: 18px;
+    overflow-y: auto; /* Allow vertical scrolling */
+    padding: 16px;
+    scrollbar-width: none ;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+.card-product {
+    position: relative;
+    width: 15%;
+    height: 39%;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #ffffff; /* Move background color here for consistency */
+    transition: transform 0.2s; /* Add some transition for hover effect */
+}
+
+.tambah:hover, .kurang:hover {
+    transform: scale(1.10); /* Slightly enlarge card on hover */
+}
+
+.card-product img {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card-product p {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: #2148C0;
+    line-height: 15px;
+}
+
+.stk-hrg {
+    line-height: 10px;
+    margin-left: 5px;
+    font-size: 13.8px;
+    color: #2148C0;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+}
+
+.tambah, .kurang {
+    cursor: pointer;
+    margin-left: 25px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+    align-items: center;
+    background-color: #7998D0;
+    color: white;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.angka-tot {
+
+    text-align: center;
+    align-items: center;
+    margin-top: 12px;
+    margin-left: 15px;
+    font-size: 18px;
+    color: #2148C0;
+    font-weight: 700;
+}
+
+.button-accept {
+
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.button-accept button{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+     align-items: center;
+    border: none;
+    border-radius: 20px;
+    width: 98%;
+    height: 90px;
+    background-color: #2148C0;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .card-product {
+        width: 20%; /* Adjust the width to fit two cards per row */
+        height: 60%;
+        margin-left: 5%;
+    }
+
+    .menu-pesanan {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-product {
+        width: 60%; /* Adjust the width to fit one card per row */
+        margin-left: 5%;
+    }
+
+
+}

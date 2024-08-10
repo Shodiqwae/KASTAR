@@ -32,7 +32,7 @@
                 </div>
                 <ul class="list-unstyled components mb-5 list-sidebar" style="font-family: Montserrat, sans-serif; font-weight:500;">
                     <li style="margin-top: 22px">
-                        <a href="{{ route('HomeA') }}" style="font-size: 18px"><span><img src="{{ asset('images/home.png') }}"
+                        <a href="{{ route('HomeP') }}" style="font-size: 18px"><span><img src="{{ asset('images/home.png') }}"
                                     alt="" style="margin-right: 13px; margin-bottom:7px"></span> Home</a>
                     </li>
                     <li class="active" style="margin-top: 3px">
@@ -40,19 +40,12 @@
                                     alt="" style="margin-right: 14px; margin-bottom:7px"></span> Product</a>
                     </li>
                     <li style="margin-top: 3px">
-                        <a href="{{ route('historyA') }}" style="font-size: 18px"><span><img src="{{ asset('images/archive.png') }}"
+                        <a href="{{ route('historyP') }}" style="font-size: 18px"><span><img src="{{ asset('images/archive.png') }}"
                                     alt="" style="margin-right: 14px; margin-bottom:7px"></span> History</a>
                     </li>
+
                     <li style="margin-top: 3px">
-                        <a href="{{ route('CrudPetugas.index') }}" style="font-size: 18px"><span><img src="{{ asset('images/user (1).png') }}"
-                                    alt="" style="margin-right: 10px; margin-bottom:7px"></span> Petugas</a>
-                    </li>
-                    <li style="margin-top: 3px">
-                        <a href="{{ route('CrudAdmin.index') }}" style="font-size: 18px"><span><img src="{{ asset('images/user (1).png') }}"
-                                    alt="" style="margin-right: 10px; margin-bottom:7px"></span> Admin</a>
-                    </li>
-                    <li style="margin-top: 3px">
-                        <a href="{{ route('profile.edit') }}" style="font-size: 18px"><span><img src="{{ asset('images/user (1).png') }}"
+                        <a href="{{ route('profile.petugas') }}" style="font-size: 18px"><span><img src="{{ asset('images/user (1).png') }}"
                                     alt="" style="margin-right: 10px; margin-bottom:7px"></span> Profile</a>
                     </li>
                 </ul>

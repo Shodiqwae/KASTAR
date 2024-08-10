@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('role', ['admin', 'petugas'])->default('admin');
             $table->string('gambar')->default('prf.png');
+            $table->string('alamat')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
