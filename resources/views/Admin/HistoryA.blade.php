@@ -75,17 +75,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($history as $item)
+                            @foreach($groupedHistory as $transaction)
                                 <tr>
-                                    <td>{{ $item->nama_user }}</td>
-                                    <td>{{ $item->pelanggan_id }}</td>
-                                    <td>{{ $item->tanggal_penjualan }}</td>
-                                    <td>{{ $item->total_harga }}</td>
-                                    <td>{{ $item->jumlah_produk }}</td>
-                                    <td>{{ $item->nama_product }}</td>
+                                    <td>{{ $transaction->nama_user }}</td>
+                                    <td>{{ $transaction->pelanggan_id }}</td>
+                                    <td>{{ $transaction->tanggal_penjualan }}</td>
+                                    <td>{{ $transaction->total_harga }}</td>
+                                    <td>
+                                        <ul>
+                                            @foreach($transaction->details as $detail)
+                                                <p>{{ $detail->jumlah_produk }}</p>
+                                            @endforeach
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            @foreach($transaction->details as $detail)
+                                                <p>{{ $detail->nama_product }}</p>
+                                            @endforeach
+                                        </ul>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
+
                     </table>
                 </div>
             </div>

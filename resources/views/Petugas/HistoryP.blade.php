@@ -55,32 +55,59 @@
             <h2 style="margin-left: 35px; font-family: Montserrat, sans-serif; font-weight:700; color: #1A4AE9;">History</h2>
             <div class="divider"></div>
 
-            <button class="button-Add btn btn-primary" data-toggle="modal" data-target="#addProductModal" style="font-family: Montserrat, sans-serif; font-weight: 600; color: #ffffff;">Download PDF</button>
+            <!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailModalLabel">Detail Transaksi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Detail transaksi akan dimuat di sini -->
+                <div id="detail-content">
+                    <!-- Konten akan dimasukkan dengan JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
             <div class="table-history">
                 <div style="max-height: 550px; overflow-y: auto;">
                     <table class="table my-5">
                         <thead>
                             <tr>
-                                <th>Nama User</th>
+                                <th>id transaksi</th>
                                 <th>Pelanggan ID</th>
-                                <th>Tanggal Penjualan</th>
+                                <th>Tanggal Transaksi</th>
                                 <th>Total Harga</th>
-                                <th>Jumlah Produk</th>
-                                <th>Nama Produk</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($history as $item)
-                                <tr>
-                                    <td>{{ $item->nama_user }}</td>
-                                    <td>{{ $item->pelanggan_id }}</td>
-                                    <td>{{ $item->tanggal_penjualan }}</td>
-                                    <td>{{ $item->total_harga }}</td>
-                                    <td>{{ $item->jumlah_produk }}</td>
-                                    <td>{{ $item->nama_product }}</td>
-                                </tr>
-                            @endforeach
+                            <tr>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->pelanggan_id }}</td>
+                                <td>{{ $item->tanggal_penjualan }}</td>
+                                <td>{{ $item->total_harga }}</td>
+                                <td>
+                                    <button class="btn btn-primary detail-btn" data-toggle="modal" data-target="#detailModal" data-id="{{ $item->id }}">
+                                        Detail
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
+
                         </tbody>
                     </table>
                 </div>
@@ -98,6 +125,40 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function(){
+            $('.detail-btn').on('click', function() {
+                const transaksiId = $(this).data('id'); // Ambil ID transaksi dari tombol yang diklik
+                const details = @json($details); // Ambil data detail dari controller
+
+                // Bersihkan konten modal sebelumnya
+                $('#detail-content').empty();
+
+                // Periksa apakah ada detail untuk transaksi ini
+                if (details[transaksiId]) {
+                    // Ambil data detail
+                    let content = '<table class="table table-bordered">';
+                    content += '<thead><tr><th>Nama Produk</th><th>Jumlah Produk</th><th>Subtotal</th></tr></thead><tbody>';
+
+                    // Iterasi melalui detail transaksi
+                    details[transaksiId].forEach(detail => {
+                        content += `<tr>
+                                        <td>${detail.nama_product}</td>
+                                        <td>${detail.jumlah_produk}</td>
+                                        <td>${detail.subtotal}</td>
+                                    </tr>`;
+                    });
+
+                    content += '</tbody></table>';
+                    $('#detail-content').html(content); // Tambahkan konten ke modal
+                } else {
+                    $('#detail-content').html('<p>Detail tidak tersedia untuk transaksi ini.</p>');
+                }
+            });
+        });
+    </script>
+
+
     <script>
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', function(e) {
